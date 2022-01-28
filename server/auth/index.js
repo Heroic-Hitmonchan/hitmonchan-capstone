@@ -1,7 +1,5 @@
+require('dotenv').config({ path:  '../../.env'})
 const router = require('express').Router()
-const SpotifyStrategy = require('passport-spotify').Strategy
-require('dotenv').config()
-let passport = require('passport');
 const {User} = require('../db')
 
 // passport.use(
@@ -18,7 +16,7 @@ const {User} = require('../db')
 //     }
 //   )
 // );
-
+console.log(process.env)
 router.get('/', (req, res) => {
   res.send('inside of auth file')
 })
