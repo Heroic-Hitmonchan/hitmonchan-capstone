@@ -16,19 +16,9 @@ export default function App() {
       responseType: ResponseType.Token,
       clientId: '12ab9fc82d684679b569135ea050d5d8',
       clientSecret: '3c13d792c46d4c33a76bd6b2e8b5de94',
-      scopes: [
-        'user-read-email', 
-        'playlist-modify-public',
-        'user-read-currently-playing',
-        'user-read-currently-played',
-        'user-top-read',
-        'user-modify-playback-state',
-        'streaming',
-        'user-read-email',
-        'user-read-private'
-      ],
+      scopes: ['user-read-email', 'playlist-modify-public'],
       usePKCE: false,
-      redirectUri: 'exp://172.25.211.63:19000'
+      redirectUri: 'exp://172.25.221.63:19000'
     },
     discovery
   )
