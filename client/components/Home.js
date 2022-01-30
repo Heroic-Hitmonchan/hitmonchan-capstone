@@ -1,7 +1,7 @@
 // import {CLIENT_ID, CLIENT_SECRET} from '@env'
 import * as React from 'react'
 import { StatusBar } from 'expo-status-bar';
-// import PhotoScreen from './PhotoScreen'
+import PhotoScreen from './PhotoScreen'
 import { StyleSheet, Text, View, Button, Pressable, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { useAuthRequest, ResponseType } from 'expo-auth-session';
@@ -17,7 +17,8 @@ const discovery = {
 const Home = () => {
 
   const isLoggedIn = useSelector((state) => {
-    return !!state.auth;
+    // console.log(state.auth)
+    return state.auth;
   });
 
   const [request, response, promptAsync] = useAuthRequest(
@@ -45,16 +46,17 @@ const Home = () => {
     dispatch(setAuthorization({}))
   }
 
-  const goToPhotoScreen = ()  => {
+  const goToPhotoScreen = () => {
     // console.log('hello')
     Actions.PhotoScreen()
   }
 
   const goToTest = () => {
-    Actions.Test()
+    Actions.UploadPhoto()
   }
 
-  if (!isLoggedIn) {
+  if (Object.keys(isLoggedIn).length === 0) {
+    // console.log('hi',console.log(Object.keys(isLoggedIn).length))
     return (
       <View style={styles.container}>
         <Text>Landing page before login</Text>
@@ -64,14 +66,16 @@ const Home = () => {
 
     )
   } else {
+    console.log(console.log(Object.keys(isLoggedIn).length))
     return (
+      
       <View style={styles.container}>
         <Text>Landing page after login</Text>
-        {/* < PhotoScreen /> */}
+        < PhotoScreen />
         <View style={styles.login_view}>
           <TouchableOpacity
             style={styles.login_btn}
-            onPress={()=>goToPhotoScreen()}
+            onPress={() => goToPhotoScreen()}
           >
             <Text style={styles.buttonTitle}> Take a picture </Text>
           </TouchableOpacity>
@@ -80,9 +84,9 @@ const Home = () => {
         <View style={styles.login_view}>
           <TouchableOpacity
             style={styles.login_btn}
-            onPress={()=>goToTest()}
+            onPress={() => goToTest()}
           >
-            <Text style={styles.buttonTitle}> Go to test view </Text>
+            <Text style={styles.buttonTitle}> Go to UploadPhoto view </Text>
           </TouchableOpacity>
         </View>
 
