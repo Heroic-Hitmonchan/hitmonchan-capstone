@@ -1,7 +1,7 @@
 // import {CLIENT_ID, CLIENT_SECRET} from '@env'
 import * as React from 'react'
 import { StatusBar } from 'expo-status-bar';
-import PhotoScreen from './PhotoScreen'
+// import PhotoScreen from './PhotoScreen'
 import { StyleSheet, Text, View, Button, Pressable, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { useAuthRequest, ResponseType } from 'expo-auth-session';
@@ -67,7 +67,7 @@ const Home = () => {
     return (
       <View style={styles.container}>
         <Text>Landing page after login</Text>
-        < PhotoScreen />
+        {/* < PhotoScreen /> */}
         <View style={styles.login_view}>
           <TouchableOpacity
             style={styles.login_btn}

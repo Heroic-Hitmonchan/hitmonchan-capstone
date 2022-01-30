@@ -1,13 +1,43 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Text, View, StyleSheet, TouchableOpacity, Alert, Image } from 'react-native';
 import { Camera } from 'expo-camera'
+import { useDispatch, useSelector } from "react-redux";
+import { setNewCapturedImage, showTheCamera, hasPermission } from '../redux/image'
 
 const PhotoScreen = () => {
 
-    const [hasPermission, setHasPermission] = useState(null);
-    const [type, setType] = useState(Camera.Constants.Type.back);
-    const [showCamera, setShowCamera] = useState(false)
-    const [image, setImage] = useState(null)
+    // const [hasPermission, setHasPermission] = useState(null);
+    // const [type, setType] = useState(Camera.Constants.Type.back);
+    // const [showCamera, setShowCamera] = useState(false)
+    // const [image, setImage] = useState(null)
+
+    const permission = useSelector((state) => {
+        return state.theCamera.permission;
+    });
+
+    const showCameraScreen = useSelector((state) => {
+        return state.theCamera.showCamera;
+    });
+
+    const theImage = useSelector((state) => {
+        return state.theCamera.image;
+    });
+
+    const dispatch = useDispatch();
+
+    const setImage = (image) => {
+        dispatch(setNewCapturedImage(image))
+    }
+
+    const setShowCamera = (value) => {
+        dispatch(showTheCamera(value))
+    }
+
+    const setHasPermission = (value) => {
+        dispatch(hasPermission(value))
+    }
+
+
 
     const cameraRef = useRef(null);
 
@@ -18,10 +48,10 @@ const PhotoScreen = () => {
         })();
     }, []);
 
-    if (hasPermission === null) {
+    if (permission === null) {
         return <View />;
     }
-    if (hasPermission === false) {
+    if (permission === false) {
         return <Text>No access to camera</Text>;
     }
 
@@ -43,10 +73,10 @@ const PhotoScreen = () => {
 
     return (
         <View style={styles.container}>
-            {showCamera ?
+            {showCameraScreen ?
                 <Camera style={{ flex: 1 }} ref={cameraRef}>
                     <View style={styles.buttonContainer}>
-                        <TouchableOpacity
+                        {/* <TouchableOpacity
                             style={styles.Camera_button}
                             onPress={() => {
                                 setType(
@@ -56,7 +86,7 @@ const PhotoScreen = () => {
                                 );
                             }}>
                             <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}> Flip </Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                         <TouchableOpacity style={styles.Camera_button}
                             onPress={async () => {
                                 const captured_photo = await takePhoto();
@@ -84,9 +114,9 @@ const PhotoScreen = () => {
                     <View
                         style={{ width: '100%', alignItems: 'center' }}
                     >
-                        {image && (
+                        {theImage && (
                             <Image
-                                source={{ uri: image }}
+                                source={{ uri: theImage }}
                                 style={{ width: 300, height: 300, backgroundColor: 'blue' }}
                             />
                         )}
