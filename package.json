@@ -10,13 +10,36 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo/ngrok": "^4.1.0",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@react-navigation/native": "^6.0.7",
+    "@react-navigation/native-stack": "^6.3.0",
+    "crypto": "^1.0.1",
     "dotenv": "^14.3.2",
-    "expo": "~44.0.0",
+    "expo": "^44.0.0",
+    "expo-auth-session": "~3.5.0",
+    "expo-camera": "~12.1.0",
+    "expo-random": "~12.1.1",
     "expo-status-bar": "~1.2.0",
+    "expo-web-browser": "~10.1.0",
+    "express": "^4.17.2",
+    "node": "^16.13.0",
+    "passport": "^0.5.2",
+    "passport-spotify": "^2.0.0",
+    "pg": "^8.7.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
-    "react-native-web": "0.17.1"
+    "react-native-dotenv": "^3.3.1",
+    "react-native-router-flux": "^3.39.1",
+    "react-native-web": "0.17.1",
+    "react-navigation": "^4.4.4",
+    "react-redux": "^7.2.6",
+    "redux": "^4.1.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.4.1",
+    "sequelize": "^6.14.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

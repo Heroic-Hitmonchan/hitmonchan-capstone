@@ -2,7 +2,7 @@
   "expo": {
     "name": "hitmonchan-capstone",
     "slug": "hitmonchan-capstone",
-    "version": "1.0.0",
+    "version": "44.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -10,6 +10,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+  
     "updates": {
       "fallbackToCacheTimeout": 0
     },
