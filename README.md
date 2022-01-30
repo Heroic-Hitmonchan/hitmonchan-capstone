@@ -16,9 +16,10 @@ CUSTOMER/USER EXPERIENCE:
   - Song entry will be created in the song table, which is associated with the above
   image entry
 6. User is able to obtain a new song after submission and play the song
-7. User is able to access history by image to get a new song and play the new song
-8. User is able to access song history by image + song to find a previous song and play it
-9. User is able to sign out
+7. User is able to play songs through the app
+8. User is able to access history by image to get a new song and play the new song
+9. User is able to access song history by image + song to find a previous song and play it
+10. User is able to sign out
 
 ENGINEER EXPERIENCE:
 1. Engineer has a well-seeded database to simulate different interactions with the history
@@ -33,7 +34,7 @@ ENGINEER EXPERIENCE:
 ## Tier 2:
 
 CUSTOMER/USER EXPERIENCE:
-1. User is able to play songs through the app
+1. User is able to see a song visualizer when playing the song
 2. User is able to clear/delete history
 3. User is able to search history
 4. User is able to share with friends
