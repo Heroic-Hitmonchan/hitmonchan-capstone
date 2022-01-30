@@ -18,8 +18,7 @@ CUSTOMER/USER EXPERIENCE:
 6. User is able to obtain a new song after submission and play the song
 7. User is able to play songs through the app
 8. User is able to access history by image to get a new song and play the new song
-9. User is able to access song history by image + song to find a previous song and play it
-10. User is able to sign out
+9. User is able to sign out
 
 ENGINEER EXPERIENCE:
 1. Engineer has a well-seeded database to simulate different interactions with the history
@@ -39,6 +38,7 @@ CUSTOMER/USER EXPERIENCE:
 3. User is able to search history
 4. User is able to share with friends
 5. User is able to favorite image-song pairs
+9. User is able to song history after clicking an image from their history
 
 ENGINEER EXPERIENCE:
 1. Engineer has updated the color reading algorithm to query multiple genres/parameters
