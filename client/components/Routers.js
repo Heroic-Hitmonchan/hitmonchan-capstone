@@ -1,10 +1,16 @@
 import React from "react";
-import { Router, Scene, Stack } from 'react-native-router-flux';
+import { Router, Scene } from 'react-native-router-flux';
 import { useDispatch, useSelector } from "react-redux";
 import { StyleSheet, Text, View, Button } from 'react-native';
 import Home from './Home';
-import PhotoScreen from './PhotoScreen'
+import CameraScreen from './CameraScreen'
 import UploadPhoto from "./UploadPhoto";
+import PostCameraScreen from "./PostCameraScreen"
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+
+const Stack = createNativeStackNavigator();
+
 
 
 const Routes = () => {
@@ -16,21 +22,20 @@ const Routes = () => {
     const dispatch = useDispatch();
 
     return (
-        <Router>
+        <NavigationContainer>
             {isLoggedIn ? (
-                <Stack key='root'>
-                    <Scene key='Home' component={Home} initial={true} />
-                    <Scene key='PhotoScreen' component={PhotoScreen} title={PhotoScreen}/>
-                    <Scene key='UploadPhoto' component={UploadPhoto} title={UploadPhoto}/>
-                </Stack>
+                <Stack.Navigator initialRouteName="Home">
+                    <Stack.Screen name='Home' component={Home}  />
+                    <Stack.Screen name='CameraScreen' component={CameraScreen} />
+                    <Stack.Screen name='UploadPhoto' component={UploadPhoto} />
+                    <Stack.Screen name='PostCameraScreen' component={PostCameraScreen} />
+                </Stack.Navigator>
             ) : (
-                <Scene key='root'>
-                    <Scene key='Home' component={Home} initial={true} />
-                </Scene>
+                <Stack.Navigator>
+                    <Stack.Screen name='Home' component={Home} initial={true} />
+                </Stack.Navigator>
             )}
-
-
-        </Router>
+        </NavigationContainer>
     )
 }
 

@@ -1,31 +1,39 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { Text, View, StyleSheet, TouchableOpacity, Alert, Image } from 'react-native';
-import { Actions } from "react-native-router-flux";
-import Home from "./Home";
 
 
-const UploadPhoto = () => {
+const UploadPhoto = ({ navigation }) => {
 
-    const goToHome = () => {
-        Actions.Home()
-    }
+  return (
+    <View style={{ flex: 1, alignItems: 'center' }}>
+      <Text>
+        I'm the UploadPhoto component
+      </Text>
+      <View >
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('Home')}
+        >
+          <Text style={styles.buttonTitle}> Go to home view </Text>
+        </TouchableOpacity>
+      </View>
 
-    return (
-        <View>
-            <Text>
-            I'm the UploadPhoto component
-            <View >
-          <TouchableOpacity
-            
-            onPress={()=>goToHome()}
-          >
-            <Text > Go to home view </Text>
-          </TouchableOpacity>
-        </View>
-
-            </Text>
-        </View>
-    )
+    </View>
+  )
 }
 
 export default UploadPhoto
+
+const styles = StyleSheet.create({
+  button: {
+    flex: 0.5,
+
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonTitle: {
+    borderWidth: 5,
+    padding: 20,
+    backgroundColor: 'silver',
+  }
+})

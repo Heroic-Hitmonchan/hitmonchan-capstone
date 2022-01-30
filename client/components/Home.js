@@ -1,23 +1,23 @@
 // import {CLIENT_ID, CLIENT_SECRET} from '@env'
 import * as React from 'react'
 import { StatusBar } from 'expo-status-bar';
-import PhotoScreen from './PhotoScreen'
 import { StyleSheet, Text, View, Button, Pressable, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { useAuthRequest, ResponseType } from 'expo-auth-session';
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { setAuthorization, logout } from '../redux/auth'
-// import { store } from './index';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+
 
 const discovery = {
   authorizationEndpoint: 'https://accounts.spotify.com/authorize',
   tokenEndpoint: 'https://accounts.spotify.com/api/token'
 }
 
-const Home = () => {
+const Home = ({ navigation }) => {
 
   const isLoggedIn = useSelector((state) => {
-    // console.log(state.auth)
     return state.auth;
   });
 
@@ -46,17 +46,7 @@ const Home = () => {
     dispatch(setAuthorization({}))
   }
 
-  const goToPhotoScreen = () => {
-    // console.log('hello')
-    Actions.PhotoScreen()
-  }
-
-  const goToTest = () => {
-    Actions.UploadPhoto()
-  }
-
   if (Object.keys(isLoggedIn).length === 0) {
-    // console.log('hi',console.log(Object.keys(isLoggedIn).length))
     return (
       <View style={styles.container}>
         <Text>Landing page before login</Text>
@@ -68,14 +58,13 @@ const Home = () => {
   } else {
     console.log(console.log(Object.keys(isLoggedIn).length))
     return (
-      
       <View style={styles.container}>
         <Text>Landing page after login</Text>
-        < PhotoScreen />
+
         <View style={styles.login_view}>
           <TouchableOpacity
             style={styles.login_btn}
-            onPress={() => goToPhotoScreen()}
+            onPress={() => navigation.navigate('CameraScreen')}
           >
             <Text style={styles.buttonTitle}> Take a picture </Text>
           </TouchableOpacity>
@@ -84,7 +73,8 @@ const Home = () => {
         <View style={styles.login_view}>
           <TouchableOpacity
             style={styles.login_btn}
-            onPress={() => goToTest()}
+            // onPress={() => goToTest()}
+            onPress={() => navigation.navigate('UploadPhoto')}
           >
             <Text style={styles.buttonTitle}> Go to UploadPhoto view </Text>
           </TouchableOpacity>
@@ -96,6 +86,7 @@ const Home = () => {
             <Text>Logout</Text>
           </Pressable>
         </View>
+
       </View>
     )
   }
@@ -114,17 +105,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   login_btn: {
-    backgroundColor: 'silver',
     borderWidth: 5,
-    padding: 20
+    padding: 20,
+    backgroundColor: 'silver',
   },
   backgroundColorbuttonTitle: {
     borderWidth: 5,
-    // marginTop: 100,
     padding: 20,
     backgroundColor: 'silver',
-    // borderRadius: 10,
-
   },
   button: {
     flex: 1,
