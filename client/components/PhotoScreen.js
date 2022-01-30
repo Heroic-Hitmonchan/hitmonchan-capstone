@@ -7,7 +7,7 @@ const PhotoScreen = () => {
     const [hasPermission, setHasPermission] = useState(null);
     const [type, setType] = useState(Camera.Constants.Type.back);
     const [showCamera, setShowCamera] = useState(false)
-    const [image, setImage ] = useState(null)
+    const [image, setImage] = useState(null)
 
     const cameraRef = useRef(null);
 
@@ -79,18 +79,18 @@ const PhotoScreen = () => {
                     </View>
                 </Camera>
                 :
-                <View style={{flex:1 ,marginTop: 50}}>
-                    
-                    <View 
-                    style={{ width:'100%', alignItems: 'center' }}
+                <View style={{ flex: 1, marginTop: 50 }}>
+
+                    <View
+                        style={{ width: '100%', alignItems: 'center' }}
                     >
-                            {image && (
-                                <Image 
-                                source={{ uri: image}}
-                                style= {{ width: 300, height: 300, backgroundColor: 'blue'}}
-                                />
-                            )}
-                        
+                        {image && (
+                            <Image
+                                source={{ uri: image }}
+                                style={{ width: 300, height: 300, backgroundColor: 'blue' }}
+                            />
+                        )}
+
                     </View>
                     <View style={{ flex: 0.5 }}>
                         <TouchableOpacity
@@ -100,7 +100,7 @@ const PhotoScreen = () => {
                             <Text style={styles.buttonTitle}> Take a picture </Text>
                         </TouchableOpacity>
                     </View>
-                  
+
                 </View>}
 
         </View>

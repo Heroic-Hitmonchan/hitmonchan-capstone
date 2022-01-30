@@ -47,7 +47,11 @@ const Home = () => {
 
   const goToPhotoScreen = ()  => {
     // console.log('hello')
-    // Actions.PhotoScreen()
+    Actions.PhotoScreen()
+  }
+
+  const goToTest = () => {
+    Actions.Test()
   }
 
   if (!isLoggedIn) {
@@ -72,6 +76,17 @@ const Home = () => {
             <Text style={styles.buttonTitle}> Take a picture </Text>
           </TouchableOpacity>
         </View>
+
+        <View style={styles.login_view}>
+          <TouchableOpacity
+            style={styles.login_btn}
+            onPress={()=>goToTest()}
+          >
+            <Text style={styles.buttonTitle}> Go to test view </Text>
+          </TouchableOpacity>
+        </View>
+
+
         <View style={styles.login_view}>
           <Pressable style={styles.login_btn} disabled={!request} title="Logout" onPress={() => logout()}>
             <Text>Logout</Text>

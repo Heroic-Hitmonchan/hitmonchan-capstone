@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { StyleSheet, Text, View, Button } from 'react-native';
 import Home from './Home';
 import PhotoScreen from './PhotoScreen'
+import Test from "./Test";
+
 
 const Routes = () => {
 
@@ -19,6 +21,8 @@ const Routes = () => {
                 <Scene key='root'>
                     <Scene key='Home' component={Home} initial={true} />
                     <Scene key='PhotoScreen' component={PhotoScreen} title={PhotoScreen}/>
+                    <Scene key='Test' component={Test} title={Test}/>
+
                 </Scene>
             ) : (
                 <Scene key='root'>
