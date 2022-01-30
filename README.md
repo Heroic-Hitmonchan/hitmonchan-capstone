@@ -69,10 +69,11 @@ ENGINEER EXPERIENCE:
 based on the users' inputs
 
 ## Database Design
-![Database Schema](https://imgur.com/JajBPWL)
+[Database Schema](https://i.imgur.com/KdJl0G2.png)
 
 ## User
-![Flowchart](https://imgur.com/KdJl0G2)
+[Flowchart](https://i.imgur.com/JajBPWL.png)
+
 Link: https://excalidraw.com/#json=6yanzjP_Vw9K1iynMW-W1,Ylv0U80wW6fSuM5NosCMqA
 
 
