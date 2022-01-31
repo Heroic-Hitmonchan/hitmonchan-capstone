@@ -9,7 +9,7 @@ app.use(express.json())
 app.use('/auth', require('./auth'))
 
 app.get('', (req, res) => {
-  res.send('hello')
+  res.send('this is the node server')
 })
 
 const init = async () => {
@@ -22,7 +22,7 @@ const init = async () => {
       console.log('db is successfully synced')
     }
     // start listening (and create a 'server' object representing our server)
-    app.listen(PORT, () => console.log(`Mixing it up on port ${PORT}`))
+    app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`))
   } catch (ex) {
     console.log(ex)
   }
