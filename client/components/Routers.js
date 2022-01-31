@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { StyleSheet, Text, View, Button } from 'react-native';
 import Home from './Home';
 import CameraScreen from './CameraScreen'
-import UploadPhoto from "./UploadPhoto";
+import UploadPhoto from "./Uploadphoto";
 import PostCameraScreen from "./PostCameraScreen"
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
