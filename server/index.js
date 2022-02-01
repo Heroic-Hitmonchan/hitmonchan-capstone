@@ -7,6 +7,7 @@ const app = express()
 app.use(express.json())
 
 app.use('/auth', require('./auth'))
+app.use('/test', require('./api/test'))
 
 app.get('', (req, res) => {
   res.send('this is the node server')
