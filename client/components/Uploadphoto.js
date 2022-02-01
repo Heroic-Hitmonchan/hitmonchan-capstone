@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Text, View, StyleSheet, TouchableOpacity, Alert, Image, Button, Platform } from 'react-native';
 import * as ImagePicker from 'expo-image-picker'
 import { manipulateAsync, FlipType, SaveFormat } from 'expo-image-manipulator'
-import { uploadFile } from 'react-s3';
+// import { uploadFile } from 'react-s3';
 global.Buffer = global.Buffer || require('buffer').Buffer
 
 const config = {
@@ -35,18 +35,21 @@ const UploadPhoto = ({ navigation }) => {
         )
 
         const imagePath = manipResult.uri
-        const imageExt = imagePath.split('.').pop()
-        const imageMime = `image/${imageExt}`
 
-        let picture = await fetch(imagePath)
-        console.log("Picture fetched from image path")
-        console.log("Prototype of picture:", Object.getPrototypeOf(picture))
-        picture = await picture.blob()
+        // THIS IS COMMENTED OUT, AS IT RELATESE TO AWS
 
-        const imageData = new File([picture], `photo.${imageExt}`, {
-          type: imageMime
-        })
-        console.log("imageData generated")
+        // const imageExt = imagePath.split('.').pop()
+        // const imageMime = `image/${imageExt}`
+
+        // let picture = await fetch(imagePath)
+        // console.log("Picture fetched from image path")
+        // console.log("Prototype of picture:", Object.getPrototypeOf(picture))
+        // picture = await picture.blob()
+
+        // const imageData = new File([picture], `photo.${imageExt}`, {
+        //   type: imageMime
+        // })
+        // console.log("imageData generated")
 
         // let { data:uploadData } = await uploadFile(imageData, config)
 
@@ -68,7 +71,6 @@ const UploadPhoto = ({ navigation }) => {
         >
           <Text style={styles.buttonTitle}> Upload Photo </Text>
         </TouchableOpacity> */}
-        {/* <input type="file" onChange={} */}
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate('Home')}
