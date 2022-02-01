@@ -9,7 +9,7 @@ export const setSong = (song) => {
     }
 }
 
-export const fetchSongsFromSpotify = (rgb, token) => {
+export const fetchSongFromSpotify = (rgb, token) => {
     return async (dispatch) => {
         try {
             // this fucntion going to take the rgb value and return the playlistId
@@ -32,8 +32,8 @@ export const fetchSongsFromSpotify = (rgb, token) => {
             };
             const songNumber = generateSongNum();
 
-            // this will send the track inforation as an object to the player.
-            // including the url wich can be accessed by adding .external_urls.spotify
+            // this will send the track inforation as an object to the reducer.
+            // including the url which can be accessed by adding .external_urls.spotify
             dispatch(setSong(response.tracks.items[songNumber].track));
             // the next line will send the track url only.
             // dispatch(setSong(response.tracks.items[songNumber].track.external_urls.spotify));
@@ -45,7 +45,7 @@ export const fetchSongsFromSpotify = (rgb, token) => {
 
 const initialState = {};
 
-export function spotifySongs(state = initialState, action) {
+export default function(state = initialState, action) {
     switch (action.type) {
         case SET_SONG:
             return action.song
