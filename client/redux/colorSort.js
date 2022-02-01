@@ -22,3 +22,5 @@ const colorSort = (accentArr, secondaryArr) => {
   }
   else return playlist.party
 }
+
+export default colorSort
