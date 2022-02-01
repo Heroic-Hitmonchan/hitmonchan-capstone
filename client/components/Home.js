@@ -56,7 +56,7 @@ const Home = ({ navigation }) => {
 
     )
   } else {
-    console.log(console.log(Object.keys(isLoggedIn).length))
+    // console.log(console.log(Object.keys(isLoggedIn).length))
     return (
       <View style={styles.container}>
         <Text>Landing page after login</Text>
