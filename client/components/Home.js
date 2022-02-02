@@ -1,7 +1,7 @@
 // import {CLIENT_ID, CLIENT_SECRET} from '@env'
 import * as React from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Pressable, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button, Pressable, TouchableOpacity, Touchable } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { useAuthRequest, ResponseType } from 'expo-auth-session';
 import { Provider, useDispatch, useSelector } from "react-redux";
@@ -79,7 +79,14 @@ const Home = ({ navigation }) => {
             <Text style={styles.buttonTitle}> Go to UploadPhoto view </Text>
           </TouchableOpacity>
         </View>
-
+        <View>
+          <TouchableOpacity
+            style={styles.login_btn}
+            onPress={() => navigation.navigate('ImageSelection')}
+          >
+            <Text style={styles.buttonTitle}>Select a Photo</Text>
+          </TouchableOpacity>
+        </View>
 
         <View style={styles.login_view}>
           <Pressable style={styles.login_btn} disabled={!request} title="Logout" onPress={() => logout()}>

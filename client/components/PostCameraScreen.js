@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Text, View, StyleSheet, TouchableOpacity, Alert, Image } from 'react-native';
-
+const getColors = require('get-image-colors')
 
 const PostCameraScreen = ({ navigation }) => {
 
     const theImage = useSelector((state) => {
+        console.log(state.theCamera.image)
         return state.theCamera.image;
     });
-
+        useEffect(() => {
+           return async () => {
+                getColors(theImage).then(colors => {
+                    console.log(colors)
+                })
+            }
+        },[])
     return (
         <View style={{ flex: 1, alignItems: 'center' }}>
             <Image

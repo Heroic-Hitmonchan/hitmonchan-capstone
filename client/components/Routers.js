@@ -8,6 +8,7 @@ import UploadPhoto from "./Uploadphoto";
 import PostCameraScreen from "./PostCameraScreen"
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import ImageSelect from "./ImageSelection";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,7 @@ const Routes = () => {
                     <Stack.Screen name='CameraScreen' component={CameraScreen} />
                     <Stack.Screen name='UploadPhoto' component={UploadPhoto} />
                     <Stack.Screen name='PostCameraScreen' component={PostCameraScreen} />
+                    <Stack.Screen name="ImageSelection" component={ImageSelect} />
                 </Stack.Navigator>
             ) : (
                 <Stack.Navigator>
