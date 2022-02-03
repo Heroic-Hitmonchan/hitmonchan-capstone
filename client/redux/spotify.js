@@ -1,4 +1,5 @@
 import axios from "axios";
+import colorSort from "./colorSort"
 
 const SET_SONG = 'SET_SONG';
 
@@ -18,6 +19,7 @@ export const fetchSongFromSpotify = (rgb, token) => {
             // const playlistId = '37i9dQZF1DWXb9I5xoXLjp'
             // const playlistId = '37i9dQZF1DXaXB8fQg7xif'
             // const playlistId = '37i9dQZF1DXaUDcU6KDCj4'
+            const playlistId = colorSort(rgb)
             const bearerToken = `Bearer ${token}`
             const { data: response } = await axios.get(`https://api.spotify.com/v1/playlists/${playlistId}`, {
                 headers: {
