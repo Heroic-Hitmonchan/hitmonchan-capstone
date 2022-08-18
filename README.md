@@ -1,4 +1,5 @@
 # Moments
+Deployed version: https://moments-pwa.herokuapp.com/home
 ___
 ## Tier 1: MVPs
 
